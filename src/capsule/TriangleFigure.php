@@ -1,16 +1,35 @@
 <?php
 class TriangleFigure {
-    public $base;
-    public $height;
+    private $base;
+    private $height;
 
     // 初期化
     public function __construct() {
-        $this->base = 1;
-        $this->height = 1;
+        $this->setBase(1);
+        $this->setHeight(1);
+    }
+
+    // baseのゲッター・セッター
+    public function getBase(): float {
+        return $this->base;
+    }
+    public function setBase(float $base) {
+        if($base > 0) {
+            $this->base = $base;
+        }
+    }
+    // heightのゲッター・セッター
+    public function getHeight():float {
+        return $this->height;
+    }
+    public function setHeight(float $height) {
+        if($height > 0) {
+            $this->height = $height;
+        }
     }
 
     // 面積を取得
     public function getArea(): float {
-        return $this->base * $this->height / 2;
+        return $this->getBase() * $this->getHeight() / 2;
     }
 }
